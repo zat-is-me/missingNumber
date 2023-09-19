@@ -4,7 +4,7 @@
 public class Main {
     public static void main(String[] args) {
         
-        int []a ={1,2,3,5};
+        int []a ={1,2,4,5,6,7,9,11,13,14,18,20};
         int missing = getMissing(a);
 
         //There is no missing value if the value of missing variable equals
@@ -13,6 +13,39 @@ public class Main {
             System.out.println("No Missing Number!");
         else
             System.out.println("Missing Number is: "+missing);
+
+        int[] missingNumbers = getMissingNumbers(a);
+
+        for (int i : missingNumbers){
+            System.out.println(i);
+        }
+
+    }
+
+    //if multiple numbers are missing
+    private static int[] getMissingNumbers(int[]a){
+        int[]missingNumbers = new int[8];
+        int index = 0;
+        int previous = a[0];
+        for (int i = 1; i < a.length ; i++) {
+            if (previous +1 != a[i]){
+                //checking how money numbers missing
+                if (a[i]-1 != previous){
+                    int size = a[i] - previous;
+                    missingNumbers[index] = previous;
+                    for (int j = 1; j < size; ++j) {
+                        missingNumbers[index] = previous+1;
+                        previous = previous+1 ;
+                        index++;
+                    }
+                }else {
+                    missingNumbers[index] = previous;
+                    index++;
+                }
+            }
+            previous = a[i];
+        }
+        return missingNumbers;
     }
 
     private static int getMissing(int[] a) {
