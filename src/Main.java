@@ -24,15 +24,23 @@ public class Main {
 
     //if multiple numbers are missing
     private static int[] getMissingNumbers(int[]a){
-        int[]missingNumbers = new int[8];
+        // to finding how many numbers are missing
+        // do this the value of the last array minus the size of the array
+        int missingSize = a[a.length-1] - a.length;
+        System.out.println("The missing numbers are: "+missingSize);
+        int[]missingNumbers = new int[missingSize];
+        //trucking the index of the missing value
         int index = 0;
         int previous = a[0];
         for (int i = 1; i < a.length ; i++) {
             if (previous +1 != a[i]){
                 //checking how money numbers missing
                 if (a[i]-1 != previous){
+                    //find how many times to loop
                     int size = a[i] - previous;
+
                     missingNumbers[index] = previous;
+                    //loop through for the missing number
                     for (int j = 1; j < size; ++j) {
                         missingNumbers[index] = previous+1;
                         previous = previous+1 ;
