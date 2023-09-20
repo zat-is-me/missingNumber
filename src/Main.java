@@ -4,11 +4,11 @@
 public class Main {
     public static void main(String[] args) {
         
-        int []a ={1,2,4,5,6,7,9,11,13,14,18,20};
-        int missing = getMissing(a);
+        int []a ={1,2,4,5};//,6,7,9,11,13,14,18,20};
+        int missing = getMissingNumber(a);
 
-        //There is no missing value if the value of missing variable equals
-        // with the first value of the array
+        //if the value of missing variable equals
+        // with the first value of the array, There is no missing value
         if (missing == a[0])
             System.out.println("No Missing Number!");
         else
@@ -16,13 +16,14 @@ public class Main {
 
         int[] missingNumbers = getMissingNumbers(a);
 
+        System.out.print("Missing number: ");
         for (int i : missingNumbers){
-            System.out.println(i);
+            System.out.print(i);
         }
 
     }
 
-    //if multiple numbers are missing
+    //if multiple or single numbers are missing from arrays
     private static int[] getMissingNumbers(int[]a){
         // to finding how many numbers are missing
         // do this the value of the last array minus the size of the array
@@ -56,7 +57,8 @@ public class Main {
         return missingNumbers;
     }
 
-    private static int getMissing(int[] a) {
+    //missing one number
+    private static int getMissingNumber(int[] a) {
         //Take the first element
         int previous = a[0];
         //placeholder for the missing number
@@ -66,8 +68,8 @@ public class Main {
         for (int i = 1; i < a.length; i++) {
             //check the next elements are equals to previous +1
             if (previous +1 != a[i]) {
-                //the missing value must be the current value at index i minus 1
-                missing = a[i] -1;
+                //the first missing value must be the current value at index i minus 1
+               return missing = a[i] -1;
             }
             //repositioning the previous value to the current index
             previous = a[i];
