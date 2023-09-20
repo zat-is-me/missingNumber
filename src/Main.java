@@ -3,8 +3,10 @@
  */
 public class Main {
     public static void main(String[] args) {
-        
-        int []a ={1,2,4,5};//,6,7,9,11,13,14,18,20};
+//        single number missing
+        int []a ={1,2,4,5};
+//        multiple number missing
+//        int []a ={1,2,4,5,6,7,9,11,13,14,18,20};
         int missing = getMissingNumber(a);
 
         //if the value of missing variable equals
